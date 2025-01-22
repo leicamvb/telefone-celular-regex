@@ -9,7 +9,7 @@ Este projeto apresenta uma expressão regular (REGEX) para validação de númer
 
 Regex para Javascript:
 ```javascript
-let Regex = /(?:(?:[+]?55[-\.\ ]?)?(?:\(?[0]?(?:[14689][1-9]|2[12478]|3[1234578]|5[1345]|7[134579])\)?[-\.\ ]?)?(?:(?:[2-8]|9[-\.\ ]?[0-9])[0-9]{3}[.\-\ ]?[0-9]{4}))/gm;
+let Regex = /(?:(?:[+]?55[-\.\ ]?)?(?:\(?[0]?(?:[14689][1-9]|2[12478]|3[1234578]|5[1345]|7[134579])\)?[-\.\ ]?)?(?:(?:[2-8]|9[-\.\ ]?[0-9]?)[0-9]{3}[.\-\ ]?[0-9]{4}))/gm;
 ```
 
 
@@ -20,6 +20,7 @@ let Regex = /(?:(?:[+]?55[-\.\ ]?)?(?:\(?[0]?(?:[14689][1-9]|2[12478]|3[1234578]
 - 4002-8922
 - 40028922
 - 01140028922
+- 91239485
 
 
 
@@ -149,11 +150,13 @@ G -->|Separador Opcional| H[4 dígitos 0-9];
 >>><strong>Início do número:</strong>
 >>> O Início do número, pode ser (2 a 8) para telefones ou 9 para celular.
 >>> Se 9, pode ter um caractere separador e deve ser seguido por um número de (0 a 9):
+>>> Ou pode ser um celular sem o nono dígito.
+>>>
 >>>```
 >>>| (?:              | Início do grupo não capturante do número
 >>>| (?:              | Início do grupo não capturante início do número
 >>>| [2-8]            | O telefone pode iniciar pelos números de (2 a 8),
->>>| |9[-\.\ ]?[0-9]  | Ou, iniciado por 9, pode ter um caractere separador  ('-', '.' ou ' ') e deve ser seguido por um número de (0 a 9).
+>>>| |9[-\.\ ]?[0-9]?  | Ou, iniciado por 9, pode ter um caractere separador  ('-', '.' ou ' ') e pode ou não ser seguido por um número de (0 a 9).
 >>>| )                | Fim do grupo não capturante início do número
 >>>| )                | Fim do grupo não capturante do número
 >>>```
