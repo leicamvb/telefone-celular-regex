@@ -9,7 +9,7 @@ Este projeto apresenta uma expressão regular (REGEX) para validação de númer
 
 Regex para Javascript:
 ```javascript
-let Regex = /(?:(?:[+]?55[-\.\ ]?)?(?:\(?[0]?(?:[14689][1-9]|2[12478]|3[1234578]|5[1345]|7[134579])\)?[-\.\ ]?)?(?:(?:[2-8]|9[-\.\ ]?[0-9]?)[0-9]{3}[.\-\ ]?[0-9]{4}))/gm;
+let Regex = /(?:(?:^|\s)(?:[+]?55[-\.\ ]?)?(?:\(?[0]?(?:[14689][1-9]|2[12478]|3[1234578]|5[1345]|7[134579])\)?[-\.\ ]?)?(?:(?:[2-8]|9[-\.\ ]?[0-9]?)[0-9]{3}[.\-\ ]?[0-9]{4}))/gm;
 ```
 
 
@@ -46,6 +46,8 @@ G -->|Separador Opcional| H[4 dígitos 0-9];
 ><strong>**`/`** : Início da expressão do Regex</strong>
 >___
 ><strong>**`(?:`** : Grupo não capturante: Geral</strong>
+>
+><strong>**`(?:^|\s)`** : Considera apenas números que estão no ínicio do texto ou após um espaço.</strong>
 >>---
 >><strong>DDI: </strong>
 >>Para reconhecer o DDI quando houver:
@@ -180,6 +182,9 @@ G -->|Separador Opcional| H[4 dígitos 0-9];
 >>
 >
 >---
+>
+><strong>**`(?=\s|$)`** : Considera apenas números que estão no fim do texto ou anterior a um espaço.</strong>
+>
 >`)` :  Fim do Grupo Não Gapturante: Geral
 >
 >---
