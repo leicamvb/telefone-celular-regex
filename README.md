@@ -9,7 +9,7 @@ Este projeto apresenta uma expressão regular (REGEX) para validação de númer
 
 Regex para Javascript:
 ```javascript
-let Regex = /(?:(?:^|\s)(?:[+]?55[-\.\ ]?)?(?:\(?[0]?(?:[14689][1-9]|2[12478]|3[1234578]|5[1345]|7[134579])\)?[-\.\ ]?)?(?:(?:[2-8]|9[-\.\ ]?[0-9]?)[0-9]{3}[.\-\ ]?[0-9]{4}))/gm;
+let Regex = /(?:(?:^|\s)(?:[+]?55[-\.\ ]?)?(?:\(?[0]?(?:[14689][1-9]|2[12478]|3[1234578]|5[1345]|7[134579])\)?[-\.\ ]?)?(?:(?:[2-8]|9[-\.\ ]?[0-9]?)[0-9]{3}[.\-\ ]?[0-9]{4})(?=\.|\,|\s|$)))/gm;
 ```
 
 
@@ -183,7 +183,7 @@ G -->|Separador Opcional| H[4 dígitos 0-9];
 >
 >---
 >
-><strong>**`(?=\s|$)`** : Considera apenas números que estão no fim do texto ou anterior a um espaço.</strong>
+><strong>**`(?=\.|\,|\s|$))`** : Considera apenas números que estão no fim do texto, anterior a um espaço, virgula ou ponto final.</strong>
 >
 >`)` :  Fim do Grupo Não Gapturante: Geral
 >
